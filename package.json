@@ -1,0 +1,32 @@
+{
+  "name": "giftcard",
+  "version": "1.0.0",
+  "description": "it's a form that allows users to apply gift card o get a discount",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnuraagBasu/GiftCard.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Anuraag Basu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnuraagBasu/GiftCard/issues"
+  },
+  "homepage": "https://github.com/AnuraagBasu/GiftCard#readme",
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.5.1",
+    "prettier": "^1.5.3"
+  }
+}
