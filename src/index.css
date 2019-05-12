@@ -37,7 +37,7 @@ body {
   color: #666666;
 }
 .giftCardContainer .info {
-  font-size: 13px;
+  font-size: 12px;
   color: #b2b2b2;
   margin-top: 12px;
 }
@@ -46,6 +46,7 @@ body {
   margin-top: 12px;
 }
 .stylisedInput {
+  font-size: 12px;
   padding: 16px 8px;
   border: 1px solid #cccccc;
   outline: none !important;
@@ -70,4 +71,43 @@ body {
   margin-top: 8px;
   cursor: pointer;
   outline: none !important;
+}
+.stylisedBtn.loading {
+  pointer-events: none;
+}
+
+#verifiedDetailsContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  padding: 8px 8px 10px;
+  font-size: 12px;
+  margin-top: 16px;
+}
+#verifiedDetailsContainer > * {
+  display: flex;
+}
+#verifiedDetailsContainer > *.left {
+  flex-direction: column;
+}
+#verifiedDetailsContainer > *.right {
+  align-items: center;
+}
+#verifiedDetailsContainer .title {
+  color: #4a4a4a;
+  font-size: 12px;
+}
+#verifiedDetailsContainer .number {
+  color: #b6b6b6;
+  margin-top: 4px;
+}
+#verifiedDetailsContainer .discount {
+  color: #000;
+  font-weight: bold;
+}
+
+.error {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #ff0000c9;
 }

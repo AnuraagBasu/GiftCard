@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Card from './components/Card';
 import LabelledCheckbox from './components/LabelledCheckbox';
+import VerifiedCardDetails from './components/VerifiedCardDetails';
+
+import { verifyGiftCard } from './actions';
+import { isCardNumberValid, isControlCodeValid } from './utils';
 
 class App extends Component {
   state = {
@@ -9,6 +14,18 @@ class App extends Component {
     typedCardNumber: '',
     typedControlCode: ''
   };
+
+  componentWillReceiveProps(newProps) {
+    if (
+      this.props.isVerificationInProgress &&
+      !newProps.isVerificationInProgress
+    ) {
+      this.setState({
+        typedCardNumber: '',
+        typedControlCode: ''
+      });
+    }
+  }
 
   toggleCheckbox = () => {
     this.setState({ hasGiftCard: !this.state.hasGiftCard });
@@ -20,11 +37,18 @@ class App extends Component {
     this.setState({ typedControlCode: e.target.value });
   };
   applyGiftCard = () => {
-    console.log('heheheheheh');
+    const { typedCardNumber, typedControlCode } = this.state;
+    if (
+      isCardNumberValid(typedCardNumber) &&
+      isControlCodeValid(typedControlCode)
+    ) {
+      this.props.dispatch(verifyGiftCard(typedCardNumber, typedControlCode));
+    }
   };
 
   render() {
     const { hasGiftCard, typedCardNumber, typedControlCode } = this.state;
+    const { isVerificationInProgress, verifiedCardDetails, error } = this.props;
 
     return (
       <React.Fragment>
@@ -34,30 +58,65 @@ class App extends Component {
             checked={hasGiftCard}
             onChange={this.toggleCheckbox}
           />
-          <div className="info">
-            Please enter the 19-digit number and code from your gift card below.
-          </div>
-          <div className="inputContainer">
-            <input
-              className="stylisedInput cardNumber"
-              value={typedCardNumber}
-              placeholder="Gift Card Number"
-              onChange={this.onCardNumberChange}
-            />
-            <input
-              className="stylisedInput controlCode"
-              value={typedControlCode}
-              placeholder="Control Code"
-              onChange={this.onControlCodeChange}
-            />
-          </div>
-          <button className="stylisedBtn" onClick={this.applyGiftCard}>
-            Apply
-          </button>
+          {hasGiftCard ? (
+            <React.Fragment>
+              <div className="info">
+                Please enter the 19-digit number and code from your gift card
+                below.
+              </div>
+
+              {verifiedCardDetails ? (
+                <VerifiedCardDetails
+                  number={verifiedCardDetails.number}
+                  discount={verifiedCardDetails.discount}
+                />
+              ) : null}
+
+              <div className="inputContainer">
+                <input
+                  className="stylisedInput cardNumber"
+                  value={typedCardNumber}
+                  placeholder="Gift Card Number"
+                  onChange={this.onCardNumberChange}
+                />
+                <input
+                  className="stylisedInput controlCode"
+                  value={typedControlCode}
+                  placeholder="Control Code"
+                  onChange={this.onControlCodeChange}
+                />
+              </div>
+
+              {error ? <div className="error">{error}</div> : null}
+
+              <button
+                className={`stylisedBtn ${
+                  isVerificationInProgress ? 'loading' : ''
+                }`}
+                onClick={this.applyGiftCard}
+              >
+                Apply
+              </button>
+            </React.Fragment>
+          ) : null}
         </Card>
       </React.Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    verifiedCardDetails: state.verifiedDetails,
+    isVerificationInProgress: state.isVerificationInProgress,
+    error: state.error
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return { dispatch };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
