@@ -1,13 +1,73 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background-color: #eaeaea;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  width: 430px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 12px;
+}
+.giftCardContainer .title {
+  font-size: 16px;
+  color: #333333;
+}
+.giftCardContainer .checkboxContainer {
+  margin-top: 8px;
+}
+.giftCardContainer .checkboxContainer > * {
+  display: inline-block;
+  vertical-align: middle;
+  color: #bfbfbf;
+}
+.giftCardContainer .checkboxContainer > label {
+  font-size: 14px;
+  margin-left: 8px;
+  color: #666666;
+}
+.giftCardContainer .info {
+  font-size: 13px;
+  color: #b2b2b2;
+  margin-top: 12px;
+}
+
+.inputContainer {
+  margin-top: 12px;
+}
+.stylisedInput {
+  padding: 16px 8px;
+  border: 1px solid #cccccc;
+  outline: none !important;
+}
+.stylisedInput.cardNumber {
+  width: 300px;
+}
+.stylisedInput.controlCode {
+  margin-left: 12px;
+  width: 94px;
+}
+
+.stylisedBtn {
+  background-color: #333333;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 8px;
+  cursor: pointer;
+  outline: none !important;
 }
