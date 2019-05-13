@@ -2,12 +2,6 @@ import React from 'react';
 
 import './index.css';
 
-const BarLoader = () => (
-  <div class="loader">
-    <div />
-    <div />
-    <div />
-  </div>
-);
+const BarLoader = () => <div class="loader" />;
 
 export default BarLoader;
