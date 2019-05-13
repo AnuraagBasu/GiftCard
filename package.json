@@ -4,22 +4,20 @@
   "private": true,
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "json-server": "^0.14.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "npm run build && npm run mock:api && node server.js",
+    "start": "node server.js",
     "start-dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:api": "json-server --watch ./mock/db.json --p 4000 -d 4000"
+    "mock:api": "json-server --watch ./mock/db.json --port 4000"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +33,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.14.2"
   }
 }

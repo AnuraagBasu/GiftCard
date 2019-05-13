@@ -29,7 +29,7 @@ export const verifyGiftCard = (cardNumber, controlCode) => dispatch => {
   dispatch(verificationInProgress());
   dispatch(setError(null));
   fetch(
-    `https://gift-card-component.herokuapp.com:4000/cards?number=${cardNumber}&code=${controlCode}`
+    `https://mock-server-ab.herokuapp.com/cards?number=${cardNumber}&code=${controlCode}`
   )
     .then(response => response.json())
     .then(response => {
