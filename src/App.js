@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Card from './components/Card';
 import LabelledCheckbox from './components/LabelledCheckbox';
 import VerifiedCardDetails from './components/VerifiedCardDetails';
+import { Button } from './components/StylisedComponents';
 
 import { verifyGiftCard } from './actions';
 import { isCardNumberValid, isControlCodeValid } from './utils';
@@ -89,14 +90,12 @@ class App extends Component {
 
               {error ? <div className="error">{error}</div> : null}
 
-              <button
-                className={`stylisedBtn ${
-                  isVerificationInProgress ? 'loading' : ''
-                }`}
+              <Button
+                loading={isVerificationInProgress}
                 onClick={this.applyGiftCard}
               >
                 Apply
-              </button>
+              </Button>
             </React.Fragment>
           ) : null}
         </Card>

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import {
   VERIFICATION_IN_PROGRESS,
+  RESET_VERIFICATION_IN_PROGRESS,
   SET_VERIFIED_DETAILS,
   SET_ERROR
 } from '../actions';
@@ -11,7 +12,7 @@ const appReducer = combineReducers({
     switch (action.type) {
       case VERIFICATION_IN_PROGRESS:
         return true;
-      case SET_VERIFIED_DETAILS:
+      case RESET_VERIFICATION_IN_PROGRESS:
         return false;
       default:
         return state;

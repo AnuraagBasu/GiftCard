@@ -50,6 +50,7 @@ body {
   padding: 16px 8px;
   border: 1px solid #cccccc;
   outline: none !important;
+  color: #666666;
 }
 .stylisedInput.cardNumber {
   width: 300px;
@@ -67,10 +68,13 @@ body {
   text-transform: uppercase;
   width: 120px;
   height: 40px;
-  line-height: 40px;
   margin-top: 8px;
   cursor: pointer;
   outline: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 .stylisedBtn.loading {
   pointer-events: none;
