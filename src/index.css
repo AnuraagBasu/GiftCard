@@ -115,3 +115,19 @@ body {
   margin-top: 4px;
   color: #ff0000c9;
 }
+
+.secretsContainer {
+  margin-top: 40px;
+}
+.secretsContainer .headerTitle {
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+.secretsContainer .codes {
+  font-size: 14px;
+}
+.secretsContainer .codes > li {
+  margin-top: 8px;
+}

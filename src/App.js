@@ -99,6 +99,22 @@ class App extends Component {
             </React.Fragment>
           ) : null}
         </Card>
+
+        <Card className="secretsContainer">
+          <div className="headerTitle">Secrets!</div>
+          <ul className="codes">
+            <li>
+              <div>Number: 1234567890123456789</div>
+              <div>Code: 123</div>
+              <div>Discount: €20</div>
+            </li>
+            <li>
+              <div>Number: 2345678901234567891</div>
+              <div>Code: 234</div>
+              <div>Discount: €14.99</div>
+            </li>
+          </ul>
+        </Card>
       </React.Fragment>
     );
   }
