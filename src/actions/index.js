@@ -28,7 +28,9 @@ const handleError = err => dispatch => {
 export const verifyGiftCard = (cardNumber, controlCode) => dispatch => {
   dispatch(verificationInProgress());
   dispatch(setError(null));
-  fetch(`http://localhost:4000/cards?number=${cardNumber}&code=${controlCode}`)
+  fetch(
+    `https://gift-card-component.herokuapp.com:4000/cards?number=${cardNumber}&code=${controlCode}`
+  )
     .then(response => response.json())
     .then(response => {
       if (response && response[0]) {
